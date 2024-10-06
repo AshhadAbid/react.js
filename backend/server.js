@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: '*', // Adjust this to your frontend URL
+  origin: 'http://localhost:5174', // Adjust this to your frontend URL
   credentials: true
 }));
 
@@ -36,7 +36,7 @@ app.use(session({
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   cookie: {
-    secure: true, // Set to true if using HTTPS
+    secure: false, // Set to true if using HTTPS
     maxAge: 1000 * 60 * 60 // 1 hour
   }
 }));
