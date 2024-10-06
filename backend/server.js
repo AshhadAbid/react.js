@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   cookie: {
     secure: false, // Set to true if using HTTPS
